@@ -1,4 +1,5 @@
 package ihmsimple.services;
+import ihmsimple.ctrl.Controller;
 
 /**
  * Classe représentant le service de l'application MVC "IhmSimple".
@@ -11,24 +12,24 @@ public class ServiceDevine {
     /**
      * Nombre maximum que l'utilisateur peut proposer.
      */
-     // VOTRE CODE ICI...
+     public static final int MAX_NOMBRE = 100;
     
     /**
      * Nombre minimum que l'utilisateur peut proposer.
      */
-     // VOTRE CODE ICI...
+     public static final int MIN_NOMBRE = 1;
     
     /**
      * Valeur retournée par la méthode lireValeurProposee() si ce qui a été saisi
      * par l'utilisateur n'est pas convertible
      * en un entier.
      */
-     // VOTRE CODE ICI...
+     public static final int NOMBRE_INVALIDE = -1;
 
     /**
      * Référence au contrôleur de l'application.
      */
-    // VOTRE CODE ICI...
+    private Controller refCtrl;
 
     /**
      * Constructeur du service.
@@ -37,7 +38,7 @@ public class ServiceDevine {
      * initiale donner.
      */
     public ServiceDevine() {
-        // VOTRE CODE ICI...
+        this.refCtrl = null;
     }
 
     /**
@@ -47,7 +48,8 @@ public class ServiceDevine {
      * @return le nombre à deviner aléatoirement choisi
      */
     public int penserAUnNombre() {
-        // VOTRE CODE ICI...
+        int nombre = ( int ) ( Math.random() * ( MAX_NOMBRE - MIN_NOMBRE + 1 ) ) + MIN_NOMBRE;
+        return nombre;
     }
 
     /**
@@ -56,7 +58,7 @@ public class ServiceDevine {
      * @param refCtrl la référence au contrôleur de l'application
      */
     public void setRefCtrl(Controller refCtrl) {
-        // VOTRE CODE ICI...
+        this.refCtrl = refCtrl;
     }
 
     /**
@@ -65,7 +67,7 @@ public class ServiceDevine {
      * @return la référence au contrôleur de l'application
      */
     public Controller getRefCtrl() {
-        // VOTRE CODE ICI...
+        return this.refCtrl;
     }
 
 }
